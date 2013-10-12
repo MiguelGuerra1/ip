@@ -3,13 +3,11 @@ class Vetores {
     static int[] naturals(int howMany)
     {
         int[] naturals = new int[howMany];
-        int i = 0,
-            digit = 1;
+        int i = 0;
 
         while (i < howMany) {
-            naturals[i] = digit;
+            naturals[i] = i + 1;
             i++;
-            digit++;
         }
 
         return naturals;
