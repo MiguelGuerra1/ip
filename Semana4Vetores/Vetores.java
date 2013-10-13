@@ -46,6 +46,9 @@ class Vetores {
     // B
     static int[] copy(int[] v, int length)
     {
+        if (length == v.length)
+            return v;
+    
         int[] copy = new int[length];
         int i = 0;
 
