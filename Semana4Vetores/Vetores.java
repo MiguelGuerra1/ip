@@ -29,7 +29,7 @@ class Vetores {
     static int[] randomDigits(int howMany)
     {
         int[] rd = new int[howMany];
-        int maxDigit = 9;
+        int maxDigit = 10;
 
         while (howMany > 0) {
             howMany--;
@@ -48,7 +48,7 @@ class Vetores {
     {
         if (length == v.length)
             return v;
-    
+
         int[] copy = new int[length];
         int i = 0;
 
@@ -106,7 +106,7 @@ class Vetores {
             i++;
         }
 
-        return max;		
+        return max;
     }
     // G
     static int[] subArray(
@@ -118,7 +118,7 @@ class Vetores {
         int i = 0;
 
         while (leftBound <= rightBound) {
-            subArray[i] = v[leftBound]; 
+            subArray[i] = v[leftBound];
             leftBound++;
             i++;
         }
@@ -242,7 +242,7 @@ class Vetores {
 
             i++;
         }
-        
+
         return fib;
     }
 
