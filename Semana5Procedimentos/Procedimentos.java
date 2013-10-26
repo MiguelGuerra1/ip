@@ -65,26 +65,22 @@ class Procedimentos {
     // d
     static void shiftLeft(char[] v)
     {
-        for (int i = 1; i < v.length; i++) {
-            // guardar actual
-            char c = v[i];
-            // copiar anterior para a frente
-            v[i] = v[i - 1];
-            // copiar actual para trás
-            v[i - 1] = c;
-        }
+        char first = v[0];
+
+        for (int i = 0; i < v.length - 1; i++)
+            v[i] = v[i + 1];
+            
+        v[v.length - 1] = first;
     }
     // e
     static void shiftRight(char[] v)
     {
-        for (int i = v.length - 1; i > 0; i--) {
-            // guardar anterior
-            char c = v[i - 1];
-            // copiar actual para trás
-            v[i - 1] = v[i];
-            // copiar anterior para frente
-            v[i] = c;
-        }
+        char last = v[v.length - 1];
+        
+        for (int i = v.length - 1; i > 0; i--)
+            v[i] = v[i - 1];
+        
+        v[0] = last;
     }
     // f
     static void swap(int i, int j, char[] v)
@@ -96,11 +92,8 @@ class Procedimentos {
     // g
     static void invert(char[] v)
     {
-        int half = v.length / 2;
-
-        for (int i = 0; i < half; i++) {
+        for (int i = 0; i < v.length / 2; i++)
             swap(i, v.length - i - 1, v);
-        }
     }
     // h (Algoritmo de Baralhação)
     static int randomIndex(int index)
@@ -111,8 +104,7 @@ class Procedimentos {
     static void fisherYates(char[] v)
     {
         for (int i = v.length - 1; i > 1; i--) {
-            int ri = randomIndex(i);
-            swap(i, ri, v);
+            swap(i, randomIndex(i), v);
         }
     }
     // /h
@@ -174,14 +166,10 @@ class Procedimentos {
     static void swapHalfs(char[] v)
     {
         int half = v.length / 2;
-        boolean isEven = v.length % 2 == 0;
-
-        for (int i = 0; i < half; i++) {
-            if (isEven)
-                swap(i, half + i, v);
-            else
-                swap(i, half + i + 1, v);
-        }
+        int remainder = v.length % 2; // 0 ou 1
+        
+        for (int i = 0; i < half; i++)
+            swap(i, half + remainder + i, v);
     }
     // / Extra
 }
