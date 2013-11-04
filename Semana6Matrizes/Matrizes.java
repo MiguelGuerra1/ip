@@ -3,7 +3,7 @@ class Matrizes {
     // Prévio
     static int[][] createRandomMatrix(int lines, int columns)
     {
-        final int randomTop = 10;
+        int randomTop = 10;
         int[][] matrix = new int[lines][columns];
         
         for (int i = 0; i < lines; i++)
