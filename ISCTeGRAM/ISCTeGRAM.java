@@ -44,6 +44,16 @@ class ISCTeGRAM {
         FilterFilm.factory(film).apply(_img);
     }
     
+    public void old()
+    {
+        CompositeEffect.OLD.apply(_img);
+    }
+    
+    public void retro()
+    {
+        CompositeEffect.RETRO.apply(_img);
+    }
+    
     /*
     public int getLuminance(int x, int y)
     {

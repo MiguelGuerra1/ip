@@ -3,7 +3,7 @@ import aguiaj.iscte.ColorImage;
 
 class FilterVignette implements IFilter {
 
-    protected static final int MAGIC_FACTOR = 3;
+    protected static final int MAGIC_FACTOR = 4;
     protected int _threshold;
 
     FilterVignette(int threshold)
