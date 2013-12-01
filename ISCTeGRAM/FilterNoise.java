@@ -11,11 +11,6 @@ class FilterNoise implements IFilter {
         setIntensity(intensity);
     }
     
-    public static FilterNoise factory(int intensity)
-    {
-        return new FilterNoise(intensity);
-    }
-    
     public void setIntensity(int intensity)
     {
         _intensity = intensity / 100.0;

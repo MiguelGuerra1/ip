@@ -21,11 +21,6 @@ class FilterSepia implements IFilter {
         _b = new SepiaFactor(.27, .53, .13);
     }
     
-    public static FilterSepia factory()
-    {
-        return new FilterSepia();
-    }
-    
     public void apply(ColorImage img)
     {
         for (int i = 0; i < img.getWidth(); i++)

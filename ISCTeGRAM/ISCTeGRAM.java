@@ -13,43 +13,50 @@ class ISCTeGRAM {
     
     public void noise(int intensity)
     {
-        FilterNoise.factory(intensity).apply(_img);
+        FilterNoise noiseFilter = new FilterNoise(intensity);
+        noiseFilter.apply(_img);
         _history.add(_img);
     }
     
     public void contrast(int intensity)
     {
-        FilterContrast.factory(intensity).apply(_img);
+        FilterContrast contrastFilter = new FilterContrast(intensity);
+        contrastFilter.apply(_img);
         _history.add(_img);
     }
     
     public void vignette(int thresholdDistance)
     {
-        FilterVignette.factory(thresholdDistance).apply(_img);
+        FilterVignette vignetteFilter = new FilterVignette(thresholdDistance);
+        vignetteFilter.apply(_img);
         _history.add(_img);
     }
     
     public void sepia()
     {
-        FilterSepia.factory().apply(_img);
+        FilterSepia sepiaFilter = new FilterSepia();
+        sepiaFilter.apply(_img);
         _history.add(_img);
     }
     
     public void blur(int radius)
     {
-        FilterBlur.factory(radius).apply(_img);
+        FilterBlur blurFilter = new FilterBlur(radius);
+        blurFilter.apply(_img);
         _history.add(_img);
     }
     
     public void film(ColorImage film, int factor)
     {
-        FilterFilm.factory(film, factor).apply(_img);
+        FilterFilm filmFilter = new FilterFilm(film, factor);
+        filmFilter.apply(_img);
         _history.add(_img);
     }
     
     public void film(ColorImage film)
     {
-        FilterFilm.factory(film).apply(_img);
+        FilterFilm filmFilter = new FilterFilm(film);
+        filmFilter.apply(_img);
         _history.add(_img);
     }
     

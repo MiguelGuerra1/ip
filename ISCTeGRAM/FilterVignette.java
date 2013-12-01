@@ -11,11 +11,6 @@ class FilterVignette implements IFilter {
         setThreshold(threshold);
     }
     
-    public static FilterVignette factory(int threshold)
-    {
-        return new FilterVignette(threshold);
-    }
-    
     public void setThreshold(int threshold)
     {
         _threshold = threshold;

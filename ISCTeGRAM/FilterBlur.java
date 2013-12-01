@@ -9,11 +9,6 @@ class FilterBlur implements IFilter {
     {
         setRadius(radius);
     }
-
-    public static FilterBlur factory(int radius)
-    {
-        return new FilterBlur(radius);
-    }
     
     public void setRadius(int radius)
     {

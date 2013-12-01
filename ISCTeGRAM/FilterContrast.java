@@ -11,11 +11,6 @@ class FilterContrast implements IFilter {
         setIntensity(intensity);
     }
     
-    public static FilterContrast factory(int intensity)
-    {
-        return new FilterContrast(intensity);
-    }
-    
     protected void setIntensity(int intensity)
     {
         _intensity = intensity / 100.0;

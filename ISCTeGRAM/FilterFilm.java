@@ -16,16 +16,6 @@ class FilterFilm implements IFilter {
         setFactor(factor);
     }
     
-    public static FilterFilm factory(ColorImage film)
-    {
-        return new FilterFilm(film);
-    }
-    
-    public static FilterFilm factory(ColorImage film, int factor)
-    {
-        return new FilterFilm(film, factor);
-    }
-    
     public void setFilm(ColorImage film)
     {
         _film = film;
