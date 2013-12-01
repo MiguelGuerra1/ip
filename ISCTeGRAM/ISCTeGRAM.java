@@ -67,7 +67,7 @@ class ISCTeGRAM {
     
     public void undo()
     {
-        if ( ! _history.firstPosition() && _history.canUndo())
+        if (_history.canUndo())
             ImageUtil.copy(_img, _history.undo());
     }
     

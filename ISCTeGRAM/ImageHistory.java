@@ -61,7 +61,7 @@ class ImageHistory {
     
     public boolean canUndo()
     {
-        return _pointer - 1 >= 0 && _history[_pointer - 1] != null;
+        return ! firstPosition() && _history[_pointer - 1] != null;
     }
     
     public boolean firstPosition()
