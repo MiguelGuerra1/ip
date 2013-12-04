@@ -1,19 +1,21 @@
+package isctegram.filter;
+import isctegram.util.ColorUtil;
 import aguiaj.iscte.Color;
 import aguiaj.iscte.ColorImage;
 
-class FilterContrast implements IFilter {
+public class ContrastFilter implements IFilter {
 
-    public static final int CONTRAST_THRESHOLD = ImageUtil.RGB / 2;
-    protected double _intensity;
+    public static final int CONTRAST_THRESHOLD = 128; // RGB (255) / 2
+    private double intensity;
     
-    FilterContrast(int intensity)
+    public ContrastFilter(int intensity)
     {
         setIntensity(intensity);
     }
     
     protected void setIntensity(int intensity)
     {
-        _intensity = intensity / 100.0;
+        this.intensity = intensity / 100.0;
     }
     
     public void apply(ColorImage img)
@@ -26,9 +28,9 @@ class FilterContrast implements IFilter {
     protected Color contrastColor(Color c)
     {
         if (c.getLuminance() > CONTRAST_THRESHOLD)
-            return ColorUtil.lighterColor(c, _intensity);
+            return ColorUtil.lighterColor(c, intensity);
         
-        return ColorUtil.darkerColor(c, _intensity);
+        return ColorUtil.darkerColor(c, intensity);
     }
 
 }

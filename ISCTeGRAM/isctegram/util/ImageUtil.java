@@ -1,7 +1,8 @@
+package isctegram.util;
 import aguiaj.iscte.Color;
 import aguiaj.iscte.ColorImage;
 
-class ImageUtil {
+public class ImageUtil {
 
     public static final int RGB = 255;
     
@@ -23,14 +24,17 @@ class ImageUtil {
                 target.setColor(i, j, orig.getColor(i, j));
     }
     
-    public static int distanceFromCenter(ColorImage img, int x, int y)
+    // Aproveito este momento para agradecer a Pitágoras
+    public static double distanceFromCenter(ColorImage img, int x, int y)
     {
-        return Math.abs(img.getWidth() / 2 - x) + Math.abs(img.getHeight() / 2 - y);
+        double distX = Math.pow((img.getWidth() / 2) - x, 2);
+        double distY = Math.pow((img.getHeight() / 2) - y, 2);
+        return Math.sqrt(distX + distY);
     }
     
     public static int imageCenter(ColorImage img)
     {
-        return img.getWidth() / 2 + img.getHeight() / 2;
+        return (img.getWidth() / 2) + (img.getHeight() / 2);
     }
     
     public static ColorImage scale(ColorImage img, int factor)
@@ -59,6 +63,14 @@ class ImageUtil {
         int length
     ) {
         fillRectangle(img, c, x, y, length, length);
+    }
+    
+    public static void fillLeftieTriangle(ColorImage img, Color c, int x, int y,
+        int width)
+    {
+        for (int i = 0; i < width; i++) {
+            fillRectangle(img, c, x, y + i, width - i, 1);
+        }
     }
     
     public static void merge(ColorImage orig, ColorImage ovw, int x, int y)

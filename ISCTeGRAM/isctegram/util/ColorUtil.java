@@ -1,6 +1,7 @@
+package isctegram.util;
 import aguiaj.iscte.Color;
 
-class ColorUtil {
+public class ColorUtil {
 
     public static int maxPrimary(Color c)
     {

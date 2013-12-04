@@ -1,19 +1,23 @@
+package isctegram.filter;
+import isctegram.util.ColorUtil;
+
 import java.util.Random;
+
 import aguiaj.iscte.Color;
 import aguiaj.iscte.ColorImage;
 
-class FilterNoise implements IFilter {
+public class NoiseFilter implements IFilter {
 
-    protected double _intensity;
+    private double intensity;
 
-    FilterNoise(int intensity)
+    public NoiseFilter(int intensity)
     {
         setIntensity(intensity);
     }
     
     public void setIntensity(int intensity)
     {
-        _intensity = intensity / 100.0;
+        this.intensity = intensity / 100.0;
     }
     
     public void apply(ColorImage img)
@@ -25,8 +29,8 @@ class FilterNoise implements IFilter {
                 if (rm.nextBoolean()) {
                     Color crrntClr = img.getColor(i, j);
                     Color nwClr = rm.nextBoolean()
-                        ? ColorUtil.lighterColorKeepHue(crrntClr, _intensity)
-                        : ColorUtil.darkerColorKeepHue(crrntClr, _intensity);
+                        ? ColorUtil.lighterColorKeepHue(crrntClr, intensity)
+                        : ColorUtil.darkerColorKeepHue(crrntClr, intensity);
                     
                     img.setColor(i, j, nwClr);
                 }

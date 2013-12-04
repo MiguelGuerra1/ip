@@ -1,18 +1,20 @@
+package isctegram.filter;
+import isctegram.util.ImageUtil;
 import aguiaj.iscte.Color;
 import aguiaj.iscte.ColorImage;
 
-class FilterBlur implements IFilter {
+public class BlurFilter implements IFilter {
 
-    protected int _radius;
+    private int radius;
     
-    FilterBlur(int radius)
+    public BlurFilter(int radius)
     {
         setRadius(radius);
     }
     
     public void setRadius(int radius)
     {
-        _radius = radius <= 0 ? 1 : radius;
+        this.radius = radius <= 0 ? 1 : radius;
     }
     
     public void apply(ColorImage img)
@@ -28,15 +30,14 @@ class FilterBlur implements IFilter {
     
     protected Color median(ColorImage img, int x, int y)
     {
-        int topX = Math.max(0, x - _radius); // -1 -> 0
-        int topY = Math.max(0, y - _radius); // -1 -> 0
+        int topX = Math.max(0, x - radius), // -1 -> 0
+            topY = Math.max(0, y - radius), // -1 -> 0
+            bottomX = Math.min(img.getWidth(), x + radius),
+            bottomY = Math.min(img.getHeight(), y + radius),
+            r, g, b,
+            sum;
 
-        int bottomX = Math.min(img.getWidth(), x + _radius);
-        int bottomY = Math.min(img.getHeight(), y + _radius);
-        
-        int r, g, b;
-        r = g = b = 0;
-        int sum = 0;
+        r = g = b = sum = 0;
         
         for (int i = topX; i < bottomX; i++)
             for (int j = topY; j < bottomY; j++) {

@@ -1,6 +1,7 @@
+package isctegram.filter;
 import aguiaj.iscte.ColorImage;
 
-interface IFilter {
+public interface IFilter {
 
     public void apply(ColorImage img);
 
