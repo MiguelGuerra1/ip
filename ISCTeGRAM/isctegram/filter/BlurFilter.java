@@ -28,7 +28,7 @@ public class BlurFilter implements IFilter {
         ImageUtil.copy(img, ci);
     }
     
-    protected Color median(ColorImage img, int x, int y)
+    private Color median(ColorImage img, int x, int y)
     {
         int topX = Math.max(0, x - radius), // -1 -> 0
             topY = Math.max(0, y - radius), // -1 -> 0

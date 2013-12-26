@@ -13,7 +13,7 @@ public class ContrastFilter implements IFilter {
         setIntensity(intensity);
     }
     
-    protected void setIntensity(int intensity)
+    private void setIntensity(int intensity)
     {
         this.intensity = intensity / 100.0;
     }
@@ -25,7 +25,7 @@ public class ContrastFilter implements IFilter {
                 img.setColor(i, j, contrastColor(img.getColor(i, j)));
     }
     
-    protected Color contrastColor(Color c)
+    private Color contrastColor(Color c)
     {
         if (c.getLuminance() > CONTRAST_THRESHOLD)
             return ColorUtil.lighterColor(c, intensity);

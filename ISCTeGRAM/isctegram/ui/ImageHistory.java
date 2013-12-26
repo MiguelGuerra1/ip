@@ -38,7 +38,7 @@ public class ImageHistory {
         }
     }
     
-    protected void push(ColorImage img)
+    private void push(ColorImage img)
     {
         pointer++;
         history[pointer] = ImageUtil.copy(img);

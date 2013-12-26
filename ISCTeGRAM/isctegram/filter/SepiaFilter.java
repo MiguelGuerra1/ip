@@ -30,7 +30,7 @@ public class SepiaFilter implements IFilter {
                 img.setColor(i, j, factorize(img.getColor(i, j)));
     }
     
-    protected Color factorize(Color c)
+    private Color factorize(Color c)
     {
         return new Color(
                 r.factorize(c),

@@ -20,7 +20,7 @@ public class VignetteFilter implements IFilter {
     
     public void apply(ColorImage img)
     {
-        int imgCenter = ImageUtil.imageCenter(img);
+        double imgCenter = ImageUtil.imageCenter(img);
 
         for (int i = 0; i < img.getWidth(); i++)
             for (int j = 0; j < img.getHeight(); j++) {
@@ -32,7 +32,7 @@ public class VignetteFilter implements IFilter {
                 
                 Color currentColor = img.getColor(i, j);
                 // Distância subtraída do limiar dá-nos um efeito aceitável
-                double intensity = (dist - threshold) / (double)imgCenter;
+                double intensity = (dist - threshold) / imgCenter;
 
                 Color darkerColor = ColorUtil.darkerColor(
                         currentColor, intensity
